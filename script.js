@@ -84,6 +84,21 @@ function updateDashboard(data) {
     if (data[2]) {
         const accountInfo = data[2].text;
         // Update overview boxes as needed
+        // Handle overview boxes as before
+        overviewBoxes.forEach(box => {
+            switch(box.dataset.type) {
+                case 'account':
+                    box.textContent = accountInfo.Account_no;
+                    break;
+                case 'due':
+                    box.textContent = accountInfo.Total_amount_due;
+                    break;
+                case 'payment':
+                    box.textContent = accountInfo.Date_Last_Payment;
+                    break;
+                // Add more cases as needed
+            }
+        });
     }
 
     // Update Delinquency History Section
