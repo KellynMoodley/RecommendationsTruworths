@@ -1,7 +1,28 @@
 {
+  "name": "truworths recommendations project",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "description": "App to provide AI summaries",
+  "main": "n8n.js",
+  "scripts": {
+    "prestart": "npm audit fix --force",
+    "start": "node server.js",
+    "dev": "nodemon n8n.js"
+  },
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "socket.io": "^4.5.0",
+    "cors":"^2.8.5",
+    "dotenv":"^16.0.3",
+    "path": "^0.12.7",
     "axios": "^1.7.9",
     "express": "^4.21.2",
     "node": "^23.8.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  },
+  "engines": {
+    "node": "18.x"
   }
 }
