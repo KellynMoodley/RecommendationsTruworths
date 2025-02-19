@@ -59,7 +59,7 @@ function updateDashboard(data) {
     if (data[0]) {
         strategySection.innerHTML = `
             <h2 class="cc-section__title">Call Strategy Guide</h2>
-            ${data[0]}
+            ${data[0].text}
         `;
     }
 
@@ -67,13 +67,13 @@ function updateDashboard(data) {
     if (data[1]) {
         aiSection.innerHTML = `
             <h2 class="cc-section__title">AI Recommended Actions</h2>
-            ${data[1]}
+            ${data[1].text}
         `;
     }
 
     // Update Account Information in Overview Boxes
     if (data[2]) {
-        const accountInfo = data[2];
+        const accountInfo = data[2].text;
         // Update overview boxes as needed
     }
 
@@ -81,7 +81,7 @@ function updateDashboard(data) {
     if (data[3]) {
         historySection.innerHTML = `
             <h2 class="cc-section__title">Delinquency History</h2>
-            ${data[3]}
+            ${data[3].text}
         `;
     }
 
@@ -89,7 +89,7 @@ function updateDashboard(data) {
     if (data[4]) {
         followupSection.innerHTML = `
             <h2 class="cc-section__title">Follow-Up Actions</h2>
-            ${data[4]}
+            ${data[4].text}
         `;
     }
 }
