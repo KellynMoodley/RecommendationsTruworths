@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Center Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Layout Components */
+        .cc-layout {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f3f4f6;
+        }
+
+        /* Dashboard Components */
+        .cc-dashboard {
+            width: 95vw;
+            height: 135vh;
+            display: grid;
+            grid-template-rows: auto auto 1fr;
+            gap: 10px;
+            
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .cc-dashboard__title {
+            color: #374151;
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* Account Overview Components */
+        .cc-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .cc-overview__box {
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #e0f2fe;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Search Components */
+        .cc-search {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding: 5px 12px;
+        }
+
+        .cc-search__icon {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .cc-search__input {
+            border: none;
+            outline: none;
+            padding: 2px 8px;
+            width: 200px;
+        }
+
+        /* Content Grid */
+        .cc-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 15px;
+            height: 100%;
+        }
+
+        /* Section Components */
+        .cc-section {
+            padding: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .cc-section__title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        /* Section Variants */
+        .cc-section--strategy { background-color: #fefce8; }
+        .cc-section--ai { background-color: #f0fdf4; }
+        .cc-section--calls { background-color: #f9fafb; }
+        .cc-section--followup { background-color: #fef2f2; }
+        .cc-section--history { background-color: #eff6ff; }
+
+        /* Form Components */
+        .cc-form__textarea {
+            width: 100%;
+            padding: 0.5rem;
+            border-radius: 0.5rem;
+            margin-top: 0.5rem;
+            border: 1px solid #e5e7eb;
+        }
+
+        .cc-form__button {
+            background-color: #3b82f6;
+            color: white;
+            padding: 0.5rem 1rem;
+            margin-top: 0.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .cc-form__button:hover {
+            background-color: #2563eb;
+        }
+    </style>
+</head>
+<body class="cc-layout">
+    <div class="cc-dashboard">
+        <h1 class="cc-dashboard__title">Call Center Agent Dashboard</h1>
+        
+        <div class="cc-search">
+            <i class="fas fa-search cc-search__icon"></i>
+            <input type="text" placeholder="Search Account..." class="cc-search__input">
+        </div>
+
+        <div class="cc-overview">
+            <div class="cc-overview__box">Last Payment Date: 2024-12-05<br>Number Broken Promises: 2<br>FPD Indicator: High Risk<br>Delinq History: 30 Days</div>
+            <div class="cc-overview__box">Amount Due: R748.33<br>Balance: R1,139.45<br>Instalment: R250.00</div>
+            <div class="cc-overview__box">Salary Date: 31<br>Payment Due Date: 2025-02-01<br>Preferred Payment Method: Cash<br>Debit Order Present: No</div>
+        </div>
+
+        <div class="cc-content">
+            <div class="cc-section cc-section--strategy">
+                <h2 class="cc-section__title">Call Strategy Guide</h2>
+                <p><strong>Introduction:</strong> "Good [morning/afternoon], this is [Your Name] from Truworths Collections. How are you today?"</p>
+                <p><strong>Offer Assistance:</strong> "Would you be able to make a payment today? We can also set up a payment plan."</p>
+                <p><strong>Highlight Consequences:</strong> "If unresolved, this may affect your credit score."</p>
+            </div>
+            
+            <div class="cc-section cc-section--ai">
+                <h2 class="cc-section__title">AI Recommended Actions</h2>
+                <ul class="list-disc pl-5">
+                    <li>Emphasize the due date and credit impact.</li>
+                    <li>Offer flexible payment options.</li>
+                    <li>Suggest follow-up near the customer's salary date (31st).</li>
+                </ul>
+            </div>
+            
+            <div class="cc-section cc-section--calls">
+                <h2 class="cc-section__title">Previous Calls & Transcriptions</h2>
+                <p><strong>Last Call:</strong> 2025-01-15</p>
+                <p><strong>Summary:</strong> Customer requested a delay; no commitment made.</p>
+                <p><strong>Sentiment Analysis:</strong> Neutral with slight resistance.</p>
+            </div>
+            
+            <div class="cc-section cc-section--followup">
+                <h2 class="cc-section__title">Follow-Up Actions</h2>
+                <p><strong>Next Call Date:</strong> 2025-02-01 (Salary Day Consideration)</p>
+                <textarea class="cc-form__textarea" placeholder="Add call notes..."></textarea>
+                <button class="cc-form__button">Save Notes</button>
+            </div>
+            
+            <div class="cc-section cc-section--history">
+                <h2 class="cc-section__title">Delinquency History</h2>
+                <p><strong>Past Delinquency:</strong> 60+ days overdue in previous cycles.</p>
+                <p><strong>Current Delinquency:</strong> 30 Days overdue (CycleDue_Current = 3).</p>
+                <p><strong>History Breakdown:</strong> Patterns of late payments and broken promises.</p>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
