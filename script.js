@@ -55,6 +55,7 @@ async function fetchAccountData(accountNumber) {
 
 // Function to update the dashboard UI
 function updateDashboard(data) {
+    console.log('Received data:', data); // Add this line to debug
     // Update Call Strategy Section
     if (data[0]) {
         strategySection.innerHTML = `
