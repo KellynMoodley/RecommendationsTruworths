@@ -53,13 +53,20 @@ async function fetchAccountData(accountNumber) {
     }
 }
 
+function formatText(text) {
+    // Replace \n\n with paragraph breaks
+    return text.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
+}
+
 // Function to update the dashboard UI
 function updateDashboard(data) {
     // Update Call Strategy Section
     if (data[0]) {
         strategySection.innerHTML = `
             <h2 class="cc-section__title">Call Strategy Guide</h2>
-            ${data[0].text}
+            <div class="cc-section__content">
+                ${formatText(data[0].text)}
+            </div>
         `;
     }
 
@@ -67,7 +74,9 @@ function updateDashboard(data) {
     if (data[1]) {
         aiSection.innerHTML = `
             <h2 class="cc-section__title">AI Recommended Actions</h2>
-            ${data[1].text}
+            <div class="cc-section__content">
+                ${formatText(data[1].text)}
+            </div>
         `;
     }
 
@@ -81,7 +90,9 @@ function updateDashboard(data) {
     if (data[3]) {
         historySection.innerHTML = `
             <h2 class="cc-section__title">Delinquency History</h2>
-            ${data[3].text}
+            <div class="cc-section__content">
+                ${formatText(data[3].text)}
+            </div>
         `;
     }
 
@@ -89,7 +100,9 @@ function updateDashboard(data) {
     if (data[4]) {
         followupSection.innerHTML = `
             <h2 class="cc-section__title">Follow-Up Actions</h2>
-            ${data[4].text}
+            <div class="cc-section__content">
+                ${formatText(data[4].text)}
+            </div>
         `;
     }
 }
