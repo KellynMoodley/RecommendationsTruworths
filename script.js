@@ -54,9 +54,9 @@ async function fetchAccountData(accountNumber) {
 }
 
 function formatText(text) {
-    let formattedText = text.replace(/\n(?!\n)/g, '<br>');
-    // Replace \n\n with paragraph breaks
-    return text.split('\n\n').map(paragraph => `<p>${paragraph}</p>`).join('');
+    
+    return text.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('');
+
 }
 
 // Function to update the dashboard UI
