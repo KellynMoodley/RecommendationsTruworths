@@ -54,10 +54,18 @@ async function fetchAccountData(accountNumber) {
 }
 
 function formatText(text) {
-    
-    return text.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('');
-
+    return text
+        .split('\n\n') // First, split by double newlines (paragraphs)
+        .map(paragraph => 
+            `<p>${paragraph.replace(/\n/g, '<br>')}</p>` // Replace single newlines with <br> within each paragraph
+        )
+        .join('');
 }
+
+//function formatText(text) {
+    
+//    return text.split('\n').map(paragraph => `<p>${paragraph}</p>`).join('');
+//}
 
 // Function to update the dashboard UI
 function updateDashboard(data) {
