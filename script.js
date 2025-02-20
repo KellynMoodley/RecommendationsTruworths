@@ -57,7 +57,7 @@ function formatText(text) {
     return text
         .split('\n\n') // First, split by double newlines (paragraphs)
         .map(paragraph => 
-            `<p>${paragraph.replace(/\n/g, '<br>')}</p>` // Replace single newlines with <br> within each paragraph
+            `<p>${paragraph.replace(/\n/g, '<br><br>')}</p>` // Replace single newlines with <br> within each paragraph
         )
         .join('');
 }
