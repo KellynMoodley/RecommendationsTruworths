@@ -81,25 +81,50 @@ function updateDashboard(data) {
     }
 
     // Update Account Information in Overview Boxes
-    if (data[2]) {
-        const accountInfo = data[2].text;
+    //if (data[2]) {
+    //    const accountInfo = data[2].text;
         // Update overview boxes as needed
         // Handle overview boxes as before
-        overviewBoxes.forEach(box => {
-            switch(box.dataset.type) {
-                case 'account':
-                    box.textContent = accountInfo.Account_no;
-                    break;
-                case 'due':
-                    box.textContent = accountInfo.Total_amount_due;
-                    break;
-                case 'payment':
-                    box.textContent = accountInfo.Date_Last_Payment;
-                    break;
+     //   overviewBoxes.forEach(box => {
+     //       switch(box.dataset.type) {
+     //           case 'account':
+     //               box.textContent = accountInfo.Account_no;
+     //               break;
+     //           case 'due':
+     //               box.textContent = accountInfo.Total_amount_due;
+      //              break;
+       //         case 'payment':
+       //             box.textContent = accountInfo.Date_Last_Payment;
+       //             break;
                 // Add more cases as needed
-            }
-        });
-    }
+        //    }
+       // });
+    //}
+
+    // Extract the account data object (data[2] from your JSON)
+    const accountData = data[2];
+    
+    // Update overview section
+    const overviewSection = document.querySelector('.cc-overview');
+    overviewSection.innerHTML = `
+        <div class="cc-overview__box">
+            Last Payment Date: ${accountData.Date_Last_Payment}<br>
+            Number Broken Promises: ${accountData.Number_Broken_PTP}<br>
+            FPD Indicator: ${accountData.FPD_Indicator}<br>
+            Collection Segment: ${accountData.Collections_Segment_Detail}
+        </div>
+        <div class="cc-overview__box">
+            Amount Due: R${accountData.Total_amount_due.toFixed(2)}<br>
+            Installment: R${accountData.instalment.toFixed(2)}<br>
+            Account Number: ${accountData.Account_no}
+        </div>
+        <div class="cc-overview__box">
+            Salary Date: ${accountData.Salary_DayofMonth}<br>
+            Payment Due Date: ${accountData.Payment_Due_Date}<br>
+            Preferred Payment Method: ${accountData.Pref_Payment_Method_Desc}<br>
+            Debit Order Present: ${accountData.debit_order_present}
+        </div>
+    `;
 
     // Update Delinquency History Section
     if (data[3]) {
